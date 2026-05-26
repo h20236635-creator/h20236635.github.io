@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L-HUSS X 디지털인문예술전공</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: sans-serif;
+    }
+
+    body {
+      background: #050505;
+      color: white;
+      overflow-x: hidden;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    /* NAV */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 8%;
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    nav a {
+      transition: 0.3s;
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
+
+    .nav-left {
+      font-size: 15px;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 60px;
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: white;
+      z-index: 2000;
+    }
+
+    section {
+      width: 100%;
+    }
+
+    /* ABOUT */
+
+    .main {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-left: 8%;
+      overflow: hidden;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.35)),
+        url("images/디인예장서표공모전.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .main::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.08), transparent);
+      right: -100px;
+      bottom: -100px;
+      filter: blur(10px);
+    }
+
+    .main h1 {
+      font-size: 4.8vw;
+      line-height: 1.2;
+      font-weight: 400;
+    }
+
+    .main h1 span {
+      display: block;
+      font-size: 2vw;
+      margin-bottom: 18px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .intro {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 10%;
+    }
+
+    .intro p {
+      font-size: 1.3rem;
+      line-height: 2;
+      max-width: 1000px;
+      margin-bottom: 50px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .btn {
+      padding: 18px 42px;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+      cursor: pointer;
+      margin-bottom: 120px;
+    }
+
+    .btn:hover {
+      transform: scale(1.07);
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* INFO CARDS */
+
+    .info-title {
+      font-size: 2rem;
+      margin-bottom: 60px;
+      font-weight: 400;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1300px;
+    }
+
+    .card {
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.03)
+      );
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 40px;
+      min-height: 260px;
+      transition: 0.4s;
+      border-radius: 24px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+      top: -60px;
+      right: -60px;
+    }
+
+    .card:hover {
+      transform: scale(1.04);
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .card h3 {
+      margin-bottom: 30px;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    .card p {
+    line-height: 2;
+    color: rgba(255,255,255,0.8);
+
+    font-size: 0.95rem;
+    }
+
+    /* COMMON COVER */
+
+    .cover {
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .cover h2 {
+      font-size: 1rem;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 400;
+    }
+
+    .cover h1 {
+      font-size: 4rem;
+      font-weight: 400;
+    }
+
+    /* WORK GRID */
+
+    .works {
+      padding: 80px 8% 150px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 40px;
+
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .work-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    padding: 16px;
+
+    border-radius: 24px;
+
+    transition: 
+    transform 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
+
+    backdrop-filter: blur(14px);
+
+    position: relative;
+    overflow: hidden;
+    }
+
+    .work-card:hover {
+    transform: translateY(-10px) scale(1.03);
+
+    border-color: rgba(255,255,255,0.18);
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .work-image {
+
+    width: 100%;
+
+    aspect-ratio: 148 / 210;
+
+    overflow: hidden;
+
+    background: #111;
+
+    border-radius: 18px;
+    }
+
+
+    .work-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .work-image img:hover {
+      transform: scale(1);
+    }
+
+    .work-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .work-text {
+      line-height: 1.8;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    .work-card {
+      cursor: pointer;
+    }
+    .desc-btn {
+      padding: 10px 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .desc-btn:hover {
+      transform: scale(1.08);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .desc-box {
+      width: 100%;
+      min-height: 90px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 18px;
+      color: white;
+      resize: none;
+      display: none;
+      margin-top: 10px;
+    }
+
+    /* AWARD */
+
+    .award-section {
+      padding: 0 8% 120px;
+    }
+
+    .award-title {
+      font-size: 2rem;
+      margin: 80px 0 40px;
+      font-weight: 400;
+    }
+
+    .award-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 380px));
+      gap: 40px;
+    }
+
+    /* GALLERY */
+
+    .gallery-grid {
+      padding: 80px 8% 150px;
+      column-count: 3;
+      column-gap: 20px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      margin-bottom: 20px;
+      transition: 0.4s;
+      cursor: pointer;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.03);
+      opacity: 0.85;
+    }
+
+    /* FOOTER */
+
+    footer {
+      width: 100%;
+      padding: 60px 8%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.5);
+    }
+    .menu-toggle {
+      display: none;
+    }
+    .main-bg {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+
+        filter: brightness(0.45);
+      }
+
+      .main-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+
+        background:
+          linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.4),
+            rgba(0,0,0,0.85)
+          );
+      }
+
+      .main h1 {
+        position: relative;
+        z-index: 10;
+
+        font-size: 4.8vw;
+        line-height: 1.2;
+        font-weight: 400;
+        z-index: 2;
+      }
+
+
+    @media (max-width: 768px) {
+
+      .menu-toggle {
+        display: block;
+        color: white;
+        cursor: pointer;
+        font-size: 15px;
+      }
+
+      /* 기존 메뉴 숨김 */
+      .nav-right {
+        display: none;
+
+        position: absolute;
+        top: 70px;
+        right: 8%;
+
+        background: rgba(0,0,0,0.9);
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      /* 펼쳤을 때 */
+      .nav-right.active {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+
+      .main h1 {
+        position: relative;
+        z-index: 10;
+
+        font-size: 4.8vw;
+        line-height: 1.2;
+        font-weight: 400;
+
+        color: white;
+      }
+
+      .cover h1 {
+        font-size: 2.5rem;
+      }
+
+      .gallery-grid {
+        column-count: 1;
+      }
+
+      nav {
+        gap: 25px;
+        font-size: 13px;
+      } 
+
+      .work-card {
+        padding: 12px;
+      }
+      .menu-toggle {
+        z-index: 10000;
+      }
+
+
+      }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- NAV -->
+
+  <nav>
+    <div class="nav-left">
+      L-HUSS X 디지털인문예술전공
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+      MENU ▼
+    </div>
+
+    <div class="nav-right" id="navMenu">
+      <a href="#about">About</a>
+      <a href="content.html">공모작</a>
+      <a href="award.html">Award</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+  </nav>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="main">
+      <h1>
+        <span>강원과 함께하는</span>
+        장서표 디자인 공모전
+      </h1>
+    </div>
+
+    <div class="intro">
+
+      <p>
+        제4회 장서표 디자인 공모전 <br>
+        '강원과 함께하는 도서관'을 주제로 한 인제 기적의 도서관 장서표 디자인 공모전입니다. <br>
+        지역과 도서관을 잇는 다양한 작품들을 확인해보세요.
+      </p>
+
+      <a href="content.html" class="btn">
+        출품작 보러 가기
+      </a>
+
+      <h2 class="info-title">
+        공모 소개 & 전시 안내
+      </h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>주제</h3>
+          <p>
+            '강원과 함께하는 도서관' <br>
+            인제 기적의 도서관<br> 장서표 공모전
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>주최</h3>
+          <p>
+            인문사회 융합인재양성사업단 <br>
+            디지털인문예술전공
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>장소</h3>
+          <p>
+            일송기념도서관 <br>
+            C.Square
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>일정</h3>
+          <p>
+            2026년 5월 25일 <br>
+            ~ 6월 5일
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <!-- footer -->
+    <footer class="footer" style="text-align:right; padding-right:8%;">
+        한림대학교 디지털인문예술전공 운영위원회<br><br>
+
+        강원특별자치도 춘천시 한림대학길 1 일송기념도서관 4층 C.SQUARE<br><br>
+        
+        웹사이트 제작/수정 문의 임지우(h20236635@glab.hallym.ac.kr)
+    </footer>
+
+  <script>
+
+    function openDescriptionPage() {
+      const newWindow = window.open('', '_blank', 'width=800,height=700');
+
+      newWindow.document.write(`
+        <html>
+        <head>
+          <title>작품 설명</title>
+          <style>
+            body {
+              background: #050505;
+              color: white;
+              font-family: sans-serif;
+              padding: 60px;
+            }
+
+            h1 {
+              font-weight: 400;
+              margin-bottom: 40px;
+            }
+
+            textarea {
+              width: 100%;
+              height: 400px;
+              background: rgba(255,255,255,0.05);
+              border: 1px solid rgba(255,255,255,0.1);
+              border-radius: 20px;
+              color: white;
+              padding: 24px;
+              resize: none;
+              font-size: 16px;
+            }
+          </style>
+        </head>
+
+        <body>
+          <h1>작품 설명</h1>
+          <textarea placeholder="작품 설명을 입력하세요."></textarea>
+        </body>
+        </html>
+      `);
+    }
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      // 뒤로 왔을 때 위치 복원
+      const savedY = sessionStorage.getItem('scrollY');
+      if (savedY !== null) {
+        window.scrollTo(0, parseInt(savedY));
+      }
+
+      // 스크롤 저장 (실시간)
+      window.addEventListener('pageshow', () => {
+        window.scrollTo(0, 0);
+      });
+
+
+    window.onscroll = function() {
+      let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      let scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    };
+
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("active");
+    }
+
+
+  </script>
+
+</body>
+</html>

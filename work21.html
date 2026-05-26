@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>작품 설명</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      font-family:sans-serif;
+      box-sizing:border-box;
+    }
+
+    body{
+    background:#050505;
+    color:white;
+
+    min-height:100vh;
+
+    padding:80px 20px;
+    }
+
+    .container{
+      width:100%;
+      max-width:900px;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+
+      gap:40px;
+      margin:0 auto
+    }
+
+    /* 작품 카드 */
+
+    .work-card{
+
+      width:100%;
+
+      background:rgba(255, 255, 255, 0.099);
+
+      border:1px solid rgba(255, 255, 255, 0.189);
+
+      border-radius:28px;
+
+      padding:40px;
+
+      backdrop-filter:blur(14px);
+
+      box-shadow:0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .work-title{
+
+      text-align:center;
+
+      margin-bottom:35px;
+
+      line-height:1.8;
+    }
+
+    .work-title h1{
+      font-size:2rem;
+      font-weight:400;
+      margin-bottom:10px;
+    }
+
+    .work-title p{
+      font-size:1rem;
+      color:rgba(255,255,255,0.7);
+    }
+
+    /* A5 비율 */
+
+    .work-image{
+
+      width:100%;
+
+      max-width:520px;
+
+      aspect-ratio:148 / 210;
+
+      margin:0 auto;
+
+      overflow:hidden;
+
+      border-radius:4px;
+
+      background:#111;
+    }
+
+    .work-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* 작품 설명 */
+
+    .description-box{
+
+      width:100%;
+
+      min-height:350px;
+
+      background:rgba(255, 255, 255, 0.099);
+
+      border:1px solid rgba(255, 255, 255, 0.189);
+
+      border-radius:28px;
+
+      padding:40px;
+
+      line-height:2;
+
+      color:rgba(255,255,255,0.82);
+
+      backdrop-filter:blur(14px);
+
+      box-shadow:0 10px 40px rgba(0,0,0,0.35);
+    }
+
+    .description-box h2{
+      font-size:1.5rem;
+      font-weight:400;
+      margin-bottom:25px;
+      color:white;
+    }
+
+    /* footer */
+
+    footer{
+
+    width:100%;
+
+    padding:50px 4%;
+
+    margin-top:60px;
+
+    border-top:1px solid rgba(255,255,255,0.08);
+
+    text-align:right;
+
+    line-height:2;
+
+    color:rgba(255,255,255,0.5);
+
+    font-size:0.95rem;
+    }
+
+    @media (max-width:768px){
+
+      .work-card{
+        padding:25px;
+      }
+
+      .work-title h1{
+        font-size:1.6rem;
+      }
+
+      .description-box{
+        padding:28px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- 작품 카드 -->
+
+    <div class="work-card">
+
+      <div class="work-title">
+
+        <h1>기적을 담은 한 페이지</h1>
+
+        <p>
+            임지우 (20236635, 디지털인문예술전공)
+        </p>
+
+      </div>
+
+      <div class="work-image">
+
+        <img src="images/21. 20236635_임지우_1.png">
+
+      </div>
+
+    </div>
+
+    <!-- 작품 설명 -->
+
+    <div class="description-box">
+
+      <h2>작품 설명</h2>
+
+      <br>인제의 산세와 고요한 자연 풍경 속에서 펼쳐진 열린 책은 책을 통해 시작되는 ‘기적’을 상징적으로 표현하였습니다. 책 위로 퍼져 나가는 빛과 별들은 상상과 배움이 확장되는 순간을 의미하며, 그 아래 자리한 인제 기적의 도서관은 사람들의 이야기와 일상이 머무는 공간으로 표현하였습니다. 한 권의 책이 누군가에게는 새로운 꿈이 되고, 작은 기적이 될 수 있다는 의미를 장서표에 담아 표현하였습니다.
+
+      <br><br>AI  활용
+      <br>장서표의 아이디어 구상, 건물 및 배경 구성과 간단한 라인 작업은 직접 진행하였으며, ChatGPT를 활용하여 색감 표현과 선 정리, 전체적인 구도 및 마감 표현을 보완하였습니다.
+      
+
+    </div>
+  </div>
+
+    <!-- footer -->
+
+    <footer class="footer" style="text-align:right; padding-right:8%;">
+
+      한림대학교 디지털인문예술전공 운영위원회<br><br>
+
+      강원특별자치도 춘천시 한림대학길 1
+      일송기념도서관 4층 C.SQUARE<br><br>
+
+      웹사이트 제작/수정 문의
+      임지우 (h20236635@glab.hallym.ac.kr)
+
+    </footer>
+
+
+</body>
+</html>

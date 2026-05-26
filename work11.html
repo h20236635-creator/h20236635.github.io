@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>작품 설명</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      font-family:sans-serif;
+      box-sizing:border-box;
+    }
+
+    body{
+    background:#050505;
+    color:white;
+
+    min-height:100vh;
+
+    padding:80px 20px;
+    }
+
+    .container{
+      width:100%;
+      max-width:900px;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+
+      gap:40px;
+      margin:0 auto
+    }
+
+    /* 작품 카드 */
+
+    .work-card{
+
+      width:100%;
+
+      background:rgba(255, 255, 255, 0.099);
+
+      border:1px solid rgba(255, 255, 255, 0.189);
+
+      border-radius:28px;
+
+      padding:40px;
+
+      backdrop-filter:blur(14px);
+
+      box-shadow:0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .work-title{
+
+      text-align:center;
+
+      margin-bottom:35px;
+
+      line-height:1.8;
+    }
+
+    .work-title h1{
+      font-size:2rem;
+      font-weight:400;
+      margin-bottom:10px;
+    }
+
+    .work-title p{
+      font-size:1rem;
+      color:rgba(255,255,255,0.7);
+    }
+
+    /* A5 비율 */
+
+    .work-image{
+
+      width:100%;
+
+      max-width:520px;
+
+      aspect-ratio:148 / 210;
+
+      margin:0 auto;
+
+      overflow:hidden;
+
+      border-radius:4px;
+
+      background:#111;
+    }
+
+    .work-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* 작품 설명 */
+
+    .description-box{
+
+      width:100%;
+
+      min-height:350px;
+
+      background:rgba(255, 255, 255, 0.099);
+
+      border:1px solid rgba(255, 255, 255, 0.189);
+
+      border-radius:28px;
+
+      padding:40px;
+
+      line-height:2;
+
+      color:rgba(255,255,255,0.82);
+
+      backdrop-filter:blur(14px);
+
+      box-shadow:0 10px 40px rgba(0,0,0,0.35);
+    }
+
+    .description-box h2{
+      font-size:1.5rem;
+      font-weight:400;
+      margin-bottom:25px;
+      color:white;
+    }
+
+    /* footer */
+
+    footer{
+
+    width:100%;
+
+    padding:50px 4%;
+
+    margin-top:60px;
+
+    border-top:1px solid rgba(255,255,255,0.08);
+
+    text-align:right;
+
+    line-height:2;
+
+    color:rgba(255,255,255,0.5);
+
+    font-size:0.95rem;
+    }
+
+    @media (max-width:768px){
+
+      .work-card{
+        padding:25px;
+      }
+
+      .work-title h1{
+        font-size:1.6rem;
+      }
+
+      .description-box{
+        padding:28px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- 작품 카드 -->
+
+    <div class="work-card">
+
+      <div class="work-title">
+
+        <h1>인제의 궤도</h1>
+
+        <p>
+            김태은 (20253113, 바이오메디컬학과)
+        </p>
+
+      </div>
+
+      <div class="work-image">
+
+        <img src="images/11. 20253133 김태은.png">
+
+      </div>
+
+    </div>
+
+    <!-- 작품 설명 -->
+
+    <div class="description-box">
+
+      <h2>작품 설명</h2>
+
+      「인제의 궤도」는 고전역학의 난제인 삼체 문제에서 착안한 장서표 디자인이다. 이 난제는 세 개의 천체가 서로 영향을 주고받으며 움직일 때 그 궤도를 정확하게 예측하기 불가능하다는 이론으로, 세 요소가 완벽한 질서 속에서 맞물리는 순간은 하나의 기적처럼 여겨진다.
+      <br>이 작품은 이러한 삼체의 구조를 인제의 자연, 책, 사람이라는 세 요소로 재해석했다. 자작나무와 내린천, 산으로 이루어진 인제의 풍경을 첫 번째 원에 담고, 두 번째 원에는 지식과 이야기를 상징하는 책을, 세번째 원에는 그 책을 읽으며 의미를 만들어가는 사람의 모습을 담아, 세 요소가 서로 연결되고 상호작용하는 구조를 표현했다.
+      <br>겹쳐진 원의 형태와 흐르는 연결 구조는 독립적으로 존재하던 요소들이 하나의 궤도 안에서 만나 새로운 흐름을 만들어내는 순간을 상징한다. 「인제의 궤도」는 인제의 자연, 책, 그리고 사람이 함께 어우러져 ‘기적의 도서관’이라는 이름에 걸맞은 특별한 공간이 되기를 바라는 마음을 담고 있다.
+      
+      <br><br>-아이디어 구상과 초안 제작 후 ChatGPT를 활용하여 최종 구현함
+      
+
+    </div>
+  </div>
+
+    <!-- footer -->
+
+    <footer class="footer" style="text-align:right; padding-right:8%;">
+
+      한림대학교 디지털인문예술전공 운영위원회<br><br>
+
+      강원특별자치도 춘천시 한림대학길 1
+      일송기념도서관 4층 C.SQUARE<br><br>
+
+      웹사이트 제작/수정 문의
+      임지우 (h20236635@glab.hallym.ac.kr)
+
+    </footer>
+
+
+</body>
+</html>

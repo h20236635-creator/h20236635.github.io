@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>작품 설명</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      font-family:sans-serif;
+      box-sizing:border-box;
+    }
+
+    body{
+    background:#050505;
+    color:white;
+
+    min-height:100vh;
+
+    padding:80px 20px;
+    }
+
+    .container{
+      width:100%;
+      max-width:900px;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+
+      gap:40px;
+      margin:0 auto
+    }
+
+    /* 작품 카드 */
+
+    .work-card{
+
+      width:100%;
+
+      background:rgba(255, 255, 255, 0.099);
+
+      border:1px solid rgba(255, 255, 255, 0.189);
+
+      border-radius:28px;
+
+      padding:40px;
+
+      backdrop-filter:blur(14px);
+
+      box-shadow:0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .work-title{
+
+      text-align:center;
+
+      margin-bottom:35px;
+
+      line-height:1.8;
+    }
+
+    .work-title h1{
+      font-size:2rem;
+      font-weight:400;
+      margin-bottom:10px;
+    }
+
+    .work-title p{
+      font-size:1rem;
+      color:rgba(255,255,255,0.7);
+    }
+
+    /* A5 비율 */
+
+    .work-image{
+
+      width:100%;
+
+      max-width:520px;
+
+      aspect-ratio:148 / 210;
+
+      margin:0 auto;
+
+      overflow:hidden;
+
+      border-radius:4px;
+
+      background:#111;
+    }
+
+    .work-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* 작품 설명 */
+
+    .description-box{
+
+      width:100%;
+
+      min-height:350px;
+
+      background:rgba(255, 255, 255, 0.099);
+
+      border:1px solid rgba(255, 255, 255, 0.189);
+
+      border-radius:28px;
+
+      padding:40px;
+
+      line-height:2;
+
+      color:rgba(255,255,255,0.82);
+
+      backdrop-filter:blur(14px);
+
+      box-shadow:0 10px 40px rgba(0,0,0,0.35);
+    }
+
+    .description-box h2{
+      font-size:1.5rem;
+      font-weight:400;
+      margin-bottom:25px;
+      color:white;
+    }
+
+    /* footer */
+
+    footer{
+
+    width:100%;
+
+    padding:50px 4%;
+
+    margin-top:60px;
+
+    border-top:1px solid rgba(255,255,255,0.08);
+
+    text-align:right;
+
+    line-height:2;
+
+    color:rgba(255,255,255,0.5);
+
+    font-size:0.95rem;
+    }
+
+    @media (max-width:768px){
+
+      .work-card{
+        padding:25px;
+      }
+
+      .work-title h1{
+        font-size:1.6rem;
+      }
+
+      .description-box{
+        padding:28px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- 작품 카드 -->
+
+    <div class="work-card">
+
+      <div class="work-title">
+
+        <h1>이어진 별의 서사</h1>
+
+        <p>
+            정영서 (20242574,  디지털미디어콘텐츠전공)
+        </p>
+
+      </div>
+
+      <div class="work-image">
+
+        <img src="images/9. 20242574 정영서.png">
+
+      </div>
+
+    </div>
+
+    <!-- 작품 설명 -->
+
+    <div class="description-box">
+
+      <h2>작품 설명</h2>
+
+      사람은 예로부터 무언가를 이어왔다. 별개의 별들은 사람에 의해 이어져 하나의 별자리의 형상이 되었고 별자리에 의미를 부여해 서사가 되어 지금까지 전해온다.
+        <br>
+        글자를 이어 단어로, 단어를 이어 문장으로, 문장을 이어 문단으로, 문단을 이야기로, 이야기를 엮어 책이 된 것처럼. 하늘에 빛나는 점을 잇고 의미를 부여하면 그것이 별자리이자 자신의 서사가 될 것이다.
+        <br>
+        장서표의 본 존재 목적은 내 책을 구분하기 위해서이다. 별에는 각기 다른 설화가 있고, 책에는 여러 관점과 해석이 존재한다. 하나의 장서 표라도 사람마다 다르다면 내 것을 구분하는 것을 넘어 나만의 것이라는 의미가 생길 것이다.
+        <br>
+        원모양의 천문도의 가장자리에는 신화를 가진 황도 12궁의 문양이 그려져 있다. 밤하늘처럼 어두운 푸른색인 천문도에 빛나는 하얀 점들은 아직 이어지지 않은 그 자체로의 별을 의미한다. 하얀 점은 황도 12궁의 모든 별자리를 이어서 만들 수 있게 배치되었으며, 자신의 방식대로 이어 황도 12궁이 아닌 나만의 별자리로 만들 수도 있다.
+        <br>
+        아래의 공백이 있는 문구는 장서 표에 창의적인 과정 중 하나로 빈칸에는 무엇이든 들어갈 수 있다. 별을 잇고 문장을 완성하는 그 과정이 별자리의 서사가 될 것이다. 사람들의 수만큼 사로 다른 장서 표가 나올 것이고 가능성의 수는 별의 수와 같을 것이다.
+            
+
+    </div>
+  </div>
+
+    <!-- footer -->
+
+    <footer class="footer" style="text-align:right; padding-right:8%;">
+
+      한림대학교 디지털인문예술전공 운영위원회<br><br>
+
+      강원특별자치도 춘천시 한림대학길 1
+      일송기념도서관 4층 C.SQUARE<br><br>
+
+      웹사이트 제작/수정 문의
+      임지우 (h20236635@glab.hallym.ac.kr)
+
+    </footer>
+
+
+</body>
+</html>

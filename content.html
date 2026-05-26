@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L-HUSS X 디지털인문예술전공</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: sans-serif;
+    }
+
+    body {
+      background: #050505;
+      color: white;
+      overflow-x: hidden;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    /* NAV */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 8%;
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    nav a {
+      transition: 0.3s;
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
+
+    .nav-left {
+      font-size: 15px;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 60px;
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: white;
+      z-index: 2000;
+    }
+
+    section {
+      width: 100%;
+    }
+
+    /* ABOUT */
+
+    .main {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-left: 8%;
+      overflow: hidden;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.35)),
+        url("images/디인예장서표공모전.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .main::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.08), transparent);
+      right: -100px;
+      bottom: -100px;
+      filter: blur(10px);
+    }
+
+    .main h1 {
+      font-size: 4.8vw;
+      line-height: 1.2;
+      font-weight: 400;
+    }
+
+    .main h1 span {
+      display: block;
+      font-size: 2vw;
+      margin-bottom: 18px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .intro {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 10%;
+    }
+
+    .intro p {
+      font-size: 1.3rem;
+      line-height: 2;
+      max-width: 1000px;
+      margin-bottom: 50px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .btn {
+      padding: 18px 42px;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+      cursor: pointer;
+      margin-bottom: 120px;
+    }
+
+    .btn:hover {
+      transform: scale(1.07);
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* INFO CARDS */
+
+    .info-title {
+      font-size: 2rem;
+      margin-bottom: 60px;
+      font-weight: 400;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1300px;
+    }
+
+    .card {
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.03)
+      );
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 40px;
+      min-height: 260px;
+      transition: 0.4s;
+      border-radius: 24px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+      top: -60px;
+      right: -60px;
+    }
+
+    .card:hover {
+      transform: scale(1.04);
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .card h3 {
+      margin-bottom: 30px;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    .card p {
+    line-height: 2;
+    color: rgba(255,255,255,0.8);
+
+    font-size: 0.95rem;
+    }
+
+    /* COMMON COVER */
+
+    .cover {
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .cover h2 {
+      font-size: 1rem;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 400;
+    }
+
+    .cover h1 {
+      font-size: 4rem;
+      font-weight: 400;
+    }
+
+    /* WORK GRID */
+
+    .works {
+      padding: 80px 8% 150px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 40px;
+
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .work-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    padding: 16px;
+
+    border-radius: 24px;
+
+    transition: 
+    transform 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
+
+    backdrop-filter: blur(14px);
+
+    position: relative;
+    overflow: hidden;
+    }
+
+    .work-card:hover {
+    transform: translateY(-10px) scale(1.03);
+
+    border-color: rgba(255,255,255,0.18);
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .work-image {
+
+    width: 100%;
+
+    aspect-ratio: 148 / 210;
+
+    overflow: hidden;
+
+    background: #111;
+
+    border-radius: 18px;
+    }
+
+
+    .work-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .work-image img:hover {
+      transform: scale(1);
+    }
+
+    .work-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .work-text {
+      line-height: 1.8;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    .work-card {
+      cursor: pointer;
+    }
+    .desc-btn {
+      padding: 10px 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .desc-btn:hover {
+      transform: scale(1.08);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .desc-box {
+      width: 100%;
+      min-height: 90px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 18px;
+      color: white;
+      resize: none;
+      display: none;
+      margin-top: 10px;
+    }
+
+    /* AWARD */
+
+    .award-section {
+      padding: 0 8% 120px;
+    }
+
+    .award-title {
+      font-size: 2rem;
+      margin: 80px 0 40px;
+      font-weight: 400;
+    }
+
+    .award-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 380px));
+      gap: 40px;
+    }
+
+    /* GALLERY */
+
+    .gallery-grid {
+      padding: 80px 8% 150px;
+      column-count: 3;
+      column-gap: 20px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      margin-bottom: 20px;
+      transition: 0.4s;
+      cursor: pointer;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.03);
+      opacity: 0.85;
+    }
+
+    /* FOOTER */
+
+    footer {
+      width: 100%;
+      padding: 60px 8%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.5);
+    }
+    .menu-toggle {
+      display: none;
+    }
+    .main-bg {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+
+        filter: brightness(0.45);
+      }
+
+      .main-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+
+        background:
+          linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.4),
+            rgba(0,0,0,0.85)
+          );
+      }
+
+      .main h1 {
+        position: relative;
+        z-index: 10;
+
+        font-size: 4.8vw;
+        line-height: 1.2;
+        font-weight: 400;
+        z-index: 2;
+      }
+
+
+    @media (max-width: 768px) {
+
+      .menu-toggle {
+        display: block;
+        color: white;
+        cursor: pointer;
+        font-size: 15px;
+      }
+
+      /* 기존 메뉴 숨김 */
+      .nav-right {
+        display: none;
+
+        position: absolute;
+        top: 70px;
+        right: 8%;
+
+        background: rgba(0,0,0,0.9);
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      /* 펼쳤을 때 */
+      .nav-right.active {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+
+      .main h1 {
+        position: relative;
+        z-index: 10;
+
+        font-size: 4.8vw;
+        line-height: 1.2;
+        font-weight: 400;
+
+        color: white;
+      }
+
+      .cover h1 {
+        font-size: 2.5rem;
+      }
+
+      .gallery-grid {
+        column-count: 1;
+      }
+
+      nav {
+        gap: 25px;
+        font-size: 13px;
+      } 
+
+      .work-card {
+        padding: 12px;
+      }
+      .menu-toggle {
+        z-index: 10000;
+      }
+
+
+      }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- NAV -->
+
+  <nav>
+    <div class="nav-left">
+      L-HUSS X 디지털인문예술전공
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+      MENU ▼
+    </div>
+
+    <div class="nav-right" id="navMenu">
+      <a href="contest.html">About</a>
+      <a href="content.html">공모작</a>
+      <a href="award.html">Award</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+  </nav>
+
+
+
+  <div class="cover">
+    <h2>Contents</h2>
+    <h1>공모작</h1>
+  </div>
+
+  <div class="works">
+    <!-- 작품 1 -->
+     
+    <div class="work-card" onclick="location.href='work1.html'">
+      <div class="work-image">
+        <img src="images/1. 20237113 최지훈.png">
+      </div>
+
+      <div class="work-info">
+        <div class="work-text">
+          최지훈 20237113<br>
+          산의 숨결을 품은 지혜의 전당, 인제 기적의 도서관
+        </div>
+
+        <!-- 작품 설명 버튼 -->
+          <button class="desc-btn">
+          작품 설명
+  </button>
+      </div>
+    </div>
+    <!-- 작품 2 -->
+    <div class="work-card" onclick="location.href='work2.html'">
+      <div class="work-image">
+        <img src="images/2. 20256202 한수빈.png">
+      </div>
+
+      <div class="work-info">
+        <div class="work-text">
+          한수빈 20256202 <br>
+          책 먹는 수달
+        </div>
+
+        <!-- 작품 설명 버튼 -->
+          <button class="desc-btn">
+          작품 설명
+          </button>
+      </div>
+    </div>
+    <!-- 작품 3 -->
+    <div class="work-card" onclick="location.href='work3.html'">
+      <div class="work-image">
+        <img src="images/3. 온고지신 지혜의 물길(팀) 전수현 김승찬 배재현.pngs">
+      </div>
+
+      <div class="work-info">
+        <div class="work-text">
+          전수현 20212750, 김승찬 20222713, 배재현 20222723 <br>
+          온고지신(溫故知新): 지혜의 물길
+        </div>
+     <!-- 작품 설명 버튼 -->
+          <button class="desc-btn">
+          작품 설명
+          </button>
+        </div>
+    </div>
+
+    <!-- 작품 4 -->
+
+    <div class="work-card" onclick="location.href='work4.html'">
+      <div class="work-image">
+        <img src="images/4. 20233015 이종현.png">
+      </div>
+    
+      <div class="work-info">
+        <div class="work-text">
+          이종현 20233015 <br>
+          푸른 강원의 한 페이지
+        </div>
+    
+          <button class="desc-btn">
+            작품 설명
+          </button>
+      </div>
+    </div>
+
+<!-- 작품 5 -->
+
+    <div class="work-card" onclick="location.href='work5.html'">
+      <div class="work-image">
+        <img src="images/5. 20269140 안치윤 .png">
+      </div>
+    
+      <div class="work-info">
+        <div class="work-text">
+          안치윤 20269140<br>
+          지식의고리
+        </div>
+
+          <button class="desc-btn">
+            작품 설명
+          </button>
+      </div>
+    </div>
+
+<!-- 작품 6 -->
+
+    <div class="work-card" onclick="location.href='work6.html'">
+      <div class="work-image">
+        <img src="images/6. 20269140 안치윤 .png">
+      </div>
+    
+      <div class="work-info">
+        <div class="work-text">
+          안치윤 20269140 <br>
+          첵의물길
+        </div>
+    
+          <button class="desc-btn">
+            작품 설명
+          </button>
+        </a>
+      </div>
+    </div>
+
+<!-- 작품 7 -->
+
+    <div class="work-card" onclick="location.href='work7.html'">
+      <div class="work-image">
+        <img src="images/7. 20227046 이채원.png">
+      </div>
+    
+      <div class="work-info">
+        <div class="work-text">
+          이채원 20227046 <br>
+          기적의 시간
+        </div>
+    
+          <button class="desc-btn">
+            작품 설명
+          </button>
+        </a>
+      </div>
+    </div>
+
+<!-- 작품 8 -->
+
+    <div class="work-card" onclick="location.href='work8.html'">
+      <div class="work-image">
+        <img src="images/8. 20246603 강예인.png">
+      </div>
+    
+      <div class="work-info">
+        <div class="work-text">
+          강예인 20246603 <br>
+          생각의 뿌리
+        </div>
+    
+          <button class="desc-btn">
+            작품 설명
+          </button>
+        </a>
+      </div>
+    </div>
+
+  <!-- 작품 9 -->
+
+    <div class="work-card" onclick="location.href='work9.html'">
+      <div class="work-image">
+        <img src="images/9. 20242574 정영서.png">
+      </div>
+    
+      <div class="work-info">
+        <div class="work-text">
+          정영서 20242574<br>
+          이어진 별의 서사
+        </div>
+    
+          <button class="desc-btn">
+            작품 설명
+          </button>
+        </a>
+      </div>
+    </div>
+
+<!-- 작품 10 -->
+
+    <div class="work-card" onclick="location.href='work10.html'">
+      <div class="work-image">
+        <img src="images/10. 20231708 김은빈.png">
+      </div>
+    
+      <div class="work-info">
+        <div class="work-text">
+          김은빈 20231708 <br>
+          다채
+        </div>
+    
+          <button class="desc-btn">
+            작품 설명
+          </button>
+        </a>
+      </div>
+    </div>
+
+      <!-- 작품 11 -->
+    
+      <div class="work-card" onclick="location.href='work11.html'">
+        <div class="work-image">
+          <img src="images/11. 20253133 김태은.png">
+        </div>
+      
+        <div class="work-info">
+          <div class="work-text">
+            김태은 20253113<br>
+            인제의 궤도
+          </div>
+      
+
+            <button class="desc-btn">
+              작품 설명
+            </button>
+          </a>
+        </div>
+      </div>
+
+    <!-- 작품 12 -->
+    
+    <div class="work-card" onclick="location.href='work12.html'">
+      <div class="work-image">
+        <img src="images/12. 20211731 한주오.png">
+      </div>
+    
+      <div class="work-info">
+        <div class="work-text">
+          한주오 20211731<br>
+          철쭉과 함게 피어난 아름다운 도서관을 담다
+        </div>
+    
+          <button class="desc-btn">
+            작품 설명
+          </button>
+        </a>
+      </div>
+    </div>
+
+  <!-- 작품 13 -->
+
+    <div class="work-card" onclick="location.href='work13.html'">
+      <div class="work-image">
+        <img src="images/13. 20213225 박창준.png">
+      </div>
+    
+      <div class="work-info">
+        <div class="work-text">
+          박창준 20213225<br>
+          숲의선율
+        </div>
+    
+          <button class="desc-btn">
+            작품 설명
+          </button>
+        </a>
+      </div>
+  </div>
+
+  <!-- 작품 14 -->
+
+  <div class="work-card" onclick="location.href='work14.html'">
+    <div class="work-image">
+      <img src="images/14. 20243035 조윤솔.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        조윤솔 20243035<br>
+        햇빛으로 성장하는 도서관
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 15 -->
+
+  <div class="work-card" onclick="location.href='work15.html'">
+    <div class="work-image">
+      <img src="images/15. 20252971 손예빈.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        손예빈 20252971<br>
+        방황하는 페이지들의 이정표
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 16 -->
+
+  <div class="work-card" onclick="location.href='work16.html'">
+    <div class="work-image">
+      <img src="images/16. 20241049 송은채.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        송은채 20241049<br>
+        사이의 서가
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 17 -->
+
+  <div class="work-card" onclick="location.href='work17.html'">
+    <div class="work-image">
+      <img src="images/17. 20222583_주현호.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        주현호 20222583<br>
+        조각조각, 인제
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 18 -->
+
+  <div class="work-card" onclick="location.href='work18.html'">
+    <div class="work-image">
+      <img src="images/18. 20222583_주현호.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        주현호 20222583<br>
+        비어있어  가득한
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 19 -->
+
+  <div class="work-card" onclick="location.href='work19.html'">
+    <div class="work-image">
+      <img src="images/19. 20237047 여동규_.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        여동규 20237047<br>
+        인제를 흐르는 책
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 20 -->
+
+  <div class="work-card" onclick="location.href='work20.html'">
+    <div class="work-image">
+      <img src="images/20. 20241056 오연우.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        오연우 20241056<br>
+        별이 내리는 서재
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 21 -->
+
+  <div class="work-card" onclick="location.href='work21.html'">
+    <div class="work-image">
+      <img src="images/21. 20236635_임지우_1.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        임지우 20236635<br>
+        기적을 담은 한 페이지
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 22 -->
+
+  <div class="work-card" onclick="location.href='work22.html'">
+    <div class="work-image">
+      <img src="images/22. 20241705 김소연.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        김소연 20241705<br>
+        
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 23 -->
+
+  <div class="work-card" onclick="location.href='work23.html'">
+    <div class="work-image">
+      <img src="images/23. 20266616 박채빈. 밤.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        박채빈 20266616<br>
+        빛이 되는 이야기
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 24 -->
+
+  <div class="work-card" onclick="location.href='work24.html'">
+    <div class="work-image">
+      <img src="images/24. 20221034 박수연.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        박수연 20221034<br>
+        MIRACLE WAVE
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 25 -->
+
+  <div class="work-card" onclick="location.href='work25.html'">
+    <div class="work-image">
+      <img src="images/25. 20241013 김민주.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        김민주 20241013<br>
+        기적이 시작되는 페이지
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 26 -->
+
+  <div class="work-card" onclick="location.href='work26.html'">
+    <div class="work-image">
+      <img src="images/26. 20266616 박채빈.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        박채빈 20266616<br>
+        기적의 비상(飛翔) 
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 27 -->
+
+  <div class="work-card" onclick="location.href='work27.html'">
+    <div class="work-image">
+      <img src="images/27. 20266616 박채빈.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        박채빈 20266616<br>
+        고요한 기적
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 28 -->
+
+  <div class="work-card" onclick="location.href='work28.html'">
+    <div class="work-image">
+      <img src="images/28. 20266616 박채빈.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        박채빈 20266616<br>
+        달빛 아래의 서재
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 29 -->
+
+  <div class="work-card" onclick="location.href='work29.html'">
+    <div class="work-image">
+      <img src="images/29. 20266616 박채빈.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        박채빈 20266616<br>
+        경계 없는 날갯짓
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 30 -->
+
+  <div class="work-card" onclick="location.href='work30.html'">
+    <div class="work-image">
+      <img src="images/30. 20242532 신은채.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        신은채 20242532<br>
+        자연과 사람을 잇는 인제 기적의 도서관
+      </div>
+
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 31 -->
+
+  <div class="work-card" onclick="location.href='work31.html'">
+    <div class="work-image">
+      <img src="images/31. 20256637 정민서-1.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        정민서 20256637<br>
+        인제 기적의 도서관 (INJE MIRACLE LIBRARY)
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 32 -->
+
+  <div class="work-card" onclick="location.href='work32.html'">
+    <div class="work-image">
+      <img src="images/32. 20266616 박채빈.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        박채빈 20266616<br>
+        더 멀리, 더 높이
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 33 -->
+
+  <div class="work-card" onclick="location.href='work33.html'">
+    <div class="work-image">
+      <img src="images/33. 20266616 박채빈.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        박채빈 20266616<br>
+        여기서 피어납니다
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 34 -->
+
+  <div class="work-card" onclick="location.href='work34.html'">
+    <div class="work-image">
+      <img src="images/34. 20242567 임세연.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        임세연 20242567<br>
+        지식의 궤도
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 35 -->
+
+  <div class="work-card" onclick="location.href='work35.html'">
+    <div class="work-image">
+      <img src="images/35. 20246630 송윤서.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        송윤서 20246630<br>
+        숲을 품은 도서관
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 36 -->
+
+  <div class="work-card" onclick="location.href='work36.html'">
+    <div class="work-image">
+      <img src="images/36. 20252564 이예진-1.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        이예진 20252564<br>
+        기억
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 37 -->
+
+  <div class="work-card" onclick="location.href='work37.html'">
+    <div class="work-image">
+      <img src="images/37. 20236637 최나연.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        최나연 20236637<br>
+        강원, 책으로 잇다
+      </div>
+
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 38 -->
+
+  <div class="work-card" onclick="location.href='work38.html'">
+    <div class="work-image">
+      <img src="images/38. 20237121 윤현아-1.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        윤현아 20237121<br>
+        
+      </div>
+  
+
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- 작품 39 -->
+
+  <div class="work-card" onclick="location.href='work39.html'">
+    <div class="work-image">
+      <img src="images/39. 20211731 한주오.png">
+    </div>
+  
+    <div class="work-info">
+      <div class="work-text">
+        한주오 20211731<br>
+        철쭉과 함게 피어난 아름다운 도서관을 담다
+      </div>
+  
+        <button class="desc-btn">
+          작품 설명
+        </button>
+      </a>
+    </div>
+  </div>
+  </div>
+
+    <!-- footer -->
+    <footer class="footer" style="text-align:right; padding-right:8%;">
+        한림대학교 디지털인문예술전공 운영위원회<br><br>
+
+        강원특별자치도 춘천시 한림대학길 1 일송기념도서관 4층 C.SQUARE<br><br>
+        
+        웹사이트 제작/수정 문의 임지우(h20236635@glab.hallym.ac.kr)
+    </footer>
+
+  <script>
+
+    function openDescriptionPage() {
+      const newWindow = window.open('', '_blank', 'width=800,height=700');
+
+      newWindow.document.write(`
+        <html>
+        <head>
+          <title>작품 설명</title>
+          <style>
+            body {
+              background: #050505;
+              color: white;
+              font-family: sans-serif;
+              padding: 60px;
+            }
+
+            h1 {
+              font-weight: 400;
+              margin-bottom: 40px;
+            }
+
+            textarea {
+              width: 100%;
+              height: 400px;
+              background: rgba(255,255,255,0.05);
+              border: 1px solid rgba(255,255,255,0.1);
+              border-radius: 20px;
+              color: white;
+              padding: 24px;
+              resize: none;
+              font-size: 16px;
+            }
+          </style>
+        </head>
+
+        <body>
+          <h1>작품 설명</h1>
+          <textarea placeholder="작품 설명을 입력하세요."></textarea>
+        </body>
+        </html>
+      `);
+    }
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      // 뒤로 왔을 때 위치 복원
+      const savedY = sessionStorage.getItem('scrollY');
+      if (savedY !== null) {
+        window.scrollTo(0, parseInt(savedY));
+      }
+
+      // 스크롤 저장 (실시간)
+      window.addEventListener('pageshow', () => {
+        window.scrollTo(0, 0);
+      });
+
+
+    window.onscroll = function() {
+      let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      let scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    };
+
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("active");
+    }
+    
+
+
+  </script>
+</body>
+</html>

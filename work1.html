@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>작품 설명</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      font-family:sans-serif;
+      box-sizing:border-box;
+    }
+
+    body{
+    background:#050505;
+    color:white;
+
+    min-height:100vh;
+
+    padding:80px 20px;
+    }
+
+    .container{
+      width:100%;
+      max-width:900px;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+
+      gap:40px;
+      margin:0 auto
+    }
+
+    /* 작품 카드 */
+
+    .work-card{
+
+      width:100%;
+
+      background:rgba(255, 255, 255, 0.099);
+
+      border:1px solid rgba(255, 255, 255, 0.189);
+
+      border-radius:28px;
+
+      padding:40px;
+
+      backdrop-filter:blur(14px);
+
+      box-shadow:0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .work-title{
+
+      text-align:center;
+
+      margin-bottom:35px;
+
+      line-height:1.8;
+    }
+
+    .work-title h1{
+      font-size:2rem;
+      font-weight:400;
+      margin-bottom:10px;
+    }
+
+    .work-title p{
+      font-size:1rem;
+      color:rgba(255,255,255,0.7);
+    }
+
+    /* A5 비율 */
+
+    .work-image{
+
+      width:100%;
+
+      max-width:520px;
+
+      aspect-ratio:148 / 210;
+
+      margin:0 auto;
+
+      overflow:hidden;
+
+      border-radius:4px;
+
+      background:#111;
+    }
+
+    .work-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* 작품 설명 */
+
+    .description-box{
+
+      width:100%;
+
+      min-height:350px;
+
+      background:rgba(255, 255, 255, 0.099);
+
+      border:1px solid rgba(255, 255, 255, 0.189);
+
+      border-radius:28px;
+
+      padding:40px;
+
+      line-height:2;
+
+      color:rgba(255,255,255,0.82);
+
+      backdrop-filter:blur(14px);
+
+      box-shadow:0 10px 40px rgba(0,0,0,0.35);
+    }
+
+    .description-box h2{
+      font-size:1.5rem;
+      font-weight:400;
+      margin-bottom:25px;
+      color:white;
+    }
+
+    /* footer */
+
+    footer{
+
+    width:100%;
+
+    padding:50px 4%;
+
+    margin-top:60px;
+
+    border-top:1px solid rgba(255,255,255,0.08);
+
+    text-align:right;
+
+    line-height:2;
+
+    color:rgba(255,255,255,0.5);
+
+    font-size:0.95rem;
+    }
+
+    @media (max-width:768px){
+
+      .work-card{
+        padding:25px;
+      }
+
+      .work-title h1{
+        font-size:1.6rem;
+      }
+
+      .description-box{
+        padding:28px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- 작품 카드 -->
+
+    <div class="work-card">
+
+      <div class="work-title">
+
+        <h1>산의 숨결을 품은 지혜의 전당, 인제 기적의 도서관</h1>
+
+        <p>
+          최지훈 (20237113, 간호학과)
+        </p>
+
+      </div>
+
+      <div class="work-image">
+
+        <img src="images/1. 20237113 최지훈.png">
+
+      </div>
+
+    </div>
+
+    <!-- 작품 설명 -->
+
+    <div class="description-box">
+
+      <h2>작품 설명</h2>
+
+      이 그림을 가만히 보고 있으면 강원도 인제가 가진 
+      맑은 공기와 그 속에 낮게 내려앉은 도서관의 평온한
+       풍경이 한눈에 들어옵니다. 단순히 건물을 그린 것이
+        아니라, 인제의 수려한 자연과 그 품에 안긴 
+        ‘인제 기적의 도서관’이 어떻게 서로 호흡하며 
+        공존하는지를 시각적으로 풀어내 보았습니다 
+        작품의 주인공이라 할 수 있는 원형 본관은 
+        실제 건축물이 가진 부드러운 곡선의 미학을 
+        간결한 선과 면으로 정돈해 담아냈습니다. 
+        차갑고 딱딱한 건물이 아니라 좌우로 길게 
+        뻗은 날개채가 마치 사람을 환영하듯 팔을 
+        벌리고 있는 듯한 인상을 주며, 지식의 확
+        장과 녹색이 주는 심리적인 안정감을 동시에
+         전달합니다. 도서관 뒤편으로 겹겹이 쌓인
+          푸른 산맥의 능선은 인제만이 가진 지형
+          적 매력을 그대로 보여줍니다. 건물 앞쪽
+          으로 층층이 결을 이루며 펼쳐진 초록빛 
+          들판은 대지의 풍성한 생명력을 입체감 있게 
+          살려냈습니다. 
+      
+
+    </div>
+  </div>
+
+    <!-- footer -->
+
+    <footer class="footer" style="text-align:right; padding-right:8%;">
+
+      한림대학교 디지털인문예술전공 운영위원회<br><br>
+
+      강원특별자치도 춘천시 한림대학길 1
+      일송기념도서관 4층 C.SQUARE<br><br>
+
+      웹사이트 제작/수정 문의
+      임지우 (h20236635@glab.hallym.ac.kr)
+
+    </footer>
+
+
+</body>
+</html>

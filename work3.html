@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>작품 설명</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #050505;
+      color: white;
+
+      min-height: 100vh;
+
+      padding: 80px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 40px;
+      margin: 0 auto
+    }
+
+    /* 작품 카드 */
+
+    .work-card {
+
+      width: 100%;
+
+      background: rgba(255, 255, 255, 0.099);
+
+      border: 1px solid rgba(255, 255, 255, 0.189);
+
+      border-radius: 28px;
+
+      padding: 40px;
+
+      backdrop-filter: blur(14px);
+
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .work-title {
+
+      text-align: center;
+
+      margin-bottom: 35px;
+
+      line-height: 1.8;
+    }
+
+    .work-title h1 {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .work-title p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* A5 비율 */
+
+    .work-image {
+
+      width: 100%;
+
+      max-width: 520px;
+
+      aspect-ratio: 148 / 210;
+
+      margin: 0 auto;
+
+      overflow: hidden;
+
+      border-radius: 4px;
+
+      background: #111;
+    }
+
+    .work-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 작품 설명 */
+
+    .description-box {
+
+      width: 100%;
+
+      min-height: 350px;
+
+      background: rgba(255, 255, 255, 0.099);
+
+      border: 1px solid rgba(255, 255, 255, 0.189);
+
+      border-radius: 28px;
+
+      padding: 40px;
+
+      line-height: 2;
+
+      color: rgba(255, 255, 255, 0.82);
+
+      backdrop-filter: blur(14px);
+
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .description-box h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 25px;
+      color: white;
+    }
+
+    /* footer */
+
+    footer {
+
+      width: 100%;
+
+      padding: 50px 4%;
+
+      margin-top: 60px;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+      text-align: right;
+
+      line-height: 2;
+
+      color: rgba(255, 255, 255, 0.5);
+
+      font-size: 0.95rem;
+    }
+
+    @media (max-width:768px) {
+
+      .work-card {
+        padding: 25px;
+      }
+
+      .work-title h1 {
+        font-size: 1.6rem;
+      }
+
+      .description-box {
+        padding: 28px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- 작품 카드 -->
+
+    <div class="work-card">
+
+      <div class="work-title">
+
+        <h1>온고지신(溫故知新): 지혜의 물길</h1>
+
+        <p>
+          전수현 (20212750, 법학과), 김승찬 (20222713, 법학과), 배재현 (20222723, 법학과)
+        </p>
+
+      </div>
+
+      <div class="work-image">
+
+        <img src="images/3. 온고지신 지혜의 물길(팀) 전수현 김승찬 배재현.png">
+
+      </div>
+
+    </div>
+
+    <!-- 작품 설명 -->
+
+    <div class="description-box">
+
+      <h2>작품 설명</h2>
+
+      이 장서표는 ‘책 속의 이야기가 길이 되어 이어진다’는 생각에서 시작했습니다. 책을 펼쳤을 때 단순히 글을 읽는 것을 넘어, 새로운 장소와 생각으로 이어지는 경험을 인제의 자연과 연결해 표현하고
+      싶었습니다.
+      <br>
+      디자인 속 흐르는 길은 책에서 시작된 지식과 이야기의 흐름을 의미합니다. 그 길은 인제의 산과 계곡, 그리고 인제 기적의 도서관으로 이어지며 자연스럽게 하나의 풍경이 되도록 구성했습니다. 인제의 자작나무
+      숲과 산세, 내린천의 이미지를 직접적으로 넣기보다는 색감과 분위기, 흐름으로 은유적으로 담아내고자 했습니다.
+      <br>
+      또한 기존 장서표가 가진 클래식한 느낌은 유지하면서도, 요즘 사람들이 실제로 책에 붙이고 싶을 만한 디자인이 되도록 현대적인 그래픽 요소와 색감을 함께 사용했습니다. 밝은 버전은 따뜻하고 편안한 독서의
+      분위기를, 어두운 버전은 밤에도 이어지는 사유와 몰입의 시간을 표현하고자 했습니다.
+      <br>
+      이 장서표가 단순한 소유 표시를 넘어, 책을 좋아하는 사람들에게 작은 그림 작품처럼 기억되었으면 하는 마음으로 작업했습니다.
+
+      <br><br>[생성형 AI 활용]<br>
+      활용 도구: 생성형 AI(ChatGPT, Google Gemini 기반 이미지 생성 활용)<br>
+
+      <br><br>디테일 수정 및 피드백:<br>
+      AI로 생성된 이미지를 바탕으로 색감과 분위기를 조정하고, 불필요한 요소를 정리하거나 추가하면서 원하는 방향으로 여러 차례 수정 작업을 진행했습니다. 또한 텍스트 위치와 폰트 분위기 역시 장서표 느낌에
+      맞게 직접 조정했습니다.
+
+      <br><br>요소 배치:<br>
+      책에서 시작된 흐름이 강과 산, 도서관으로 자연스럽게 이어질 수 있도록 중앙 시선 구조를 중심으로 배치했습니다. 장서표 특유의 여백감도 함께 살리고자 했습니다. 도서관을 실제 인제 기적의 도서관 외형을
+      모티브로 하려고 노력하였습니다.
+
+      <br><br>스토리텔링:<br>
+      ‘책 속에서 길을 찾는다’는 흐름을 중심으로, 독서를 통해 사람과 자연, 공간이 연결되는 모습을 하나의 풍경처럼 표현하고자 했습니다.
+
+
+    </div>
+  </div>
+
+  <!-- footer -->
+
+  <footer class="footer" style="text-align:right; padding-right:8%;">
+
+    한림대학교 디지털인문예술전공 운영위원회<br><br>
+
+    강원특별자치도 춘천시 한림대학길 1
+    일송기념도서관 4층 C.SQUARE<br><br>
+
+    웹사이트 제작/수정 문의
+    임지우 (h20236635@glab.hallym.ac.kr)
+
+  </footer>
+
+
+</body>
+
+</html>
